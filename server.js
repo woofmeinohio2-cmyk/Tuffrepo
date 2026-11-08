@@ -56,11 +56,19 @@ app.post("/api/openai", async (req, res) => {
         })
       }
     );
+if (!response.ok) {
+  const errorText = await response.text();
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      return res.status(response.status).send(errorText);
-    }
+  console.error(
+    "OpenAI API error:",
+    response.status,
+    errorText
+  );
+
+  return res.status(response.status).send(errorText);
+}
+   
+    
 
     res.setHeader("Content-Type", "text/event-stream");
     res.setHeader("Cache-Control", "no-cache");
