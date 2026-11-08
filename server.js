@@ -6,8 +6,7 @@ import { Readable } from "node:stream";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MODEL = process.env.OPENAI_MODEL || "gpt-6-luna";
-
+const MODEL = process.env.OPENAI_MODEL || "gpt-6";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
