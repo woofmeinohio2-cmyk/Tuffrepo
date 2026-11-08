@@ -23,6 +23,8 @@ app.get("/api/health", (req, res) => {
 
 // Securely send messages to OpenAI
 app.post("/api/openai", async (req, res) => {
+  console.log("CAPRI REQUEST RECEIVED");
+  
   const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {
